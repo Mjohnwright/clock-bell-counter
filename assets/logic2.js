@@ -77,22 +77,20 @@ function convert(a, b) {
   if (startTime > 12 && endTime < 12 ) {
       //22:00 - 2:00
       console.log("5################")
-      for (var i = endTime; i < endTime + 12; i++) {
-        if (i < 12 ) {
-            clockStrikes += endTime;
-            endTime--;
+      for (var i = startTime; i <= endTime +24 ; i++) {
+        if (i <= 24 ) {
+            clockStrikes += i - 12;
             console.log("less than 12 = " + clockStrikes)
 
-        }  else {
-            clockStrikes +- startTime -12
-            startTime--;
+        }  else { 
+            clockStrikes += i -24;
             console.log("more than 13 = " + clockStrikes)
         }
 
       }
   }
 
-  if (endTime > 12 && startTime <= 12) {
+  if (endTime >= 12 && startTime <= 12) {
       // 7:00 - 13:00
       console.log("(3 ^^^^^^^^^^^^");
 
