@@ -1,0 +1,12 @@
+.container {
+    align-content: center;
+}
+
+.jumbotron {
+    color: blue;
+    text-align: center;
+}
+.panel {
+    width: 200px;
+    text-align: center;
+}
