@@ -1,5 +1,12 @@
 CLOCK TOWER BELL COUNTER
 
+ *** There are some bugs in my code:
+    1. front end input time validation not activated - not working completely yet
+    2. time scenarios that do not end with :00 are not accounted for 
+    3. may be some other time scenarios I have not though of
+
+
+
 User Story
 
 As a clock enthusiast, I want to know how many times a clock tower will ring its bell between two given times, so that I can plan to sing along.

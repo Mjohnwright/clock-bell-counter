@@ -20,13 +20,32 @@ $("#button").on("click", function() {
     .trim();
   // console.log(startTimeInput);
 
+  // RUNS the validation function
+  //validate(startTimeInput);
+
   endTimeInput = $("#endTime")
     .val()
     .trim();
   //console.log(endTimeInput);
+  
+  // RUNS the validation function
+  //validate(startTimeInput, endTimeInput);
 
-  convert(startTimeInput, endTimeInput);
+  // RUNS the convert function
+  convert(endTimeInput);
 });
+
+function validate(a) {
+  alert("fired");
+  alert(a);
+  var regex = /^\d{1,2}:\d{2}([ap]m)?$/;
+  if(a="") {
+    alert("Field cannot be blank")
+    if(!regex.test(a)) {
+      alert("Please use 24 hour format: ex. 03:00");
+    }
+  } return
+}
 
 // Converts time to integers and processes clockStrike scenarios
 function convert(a, b) {
@@ -46,16 +65,17 @@ function convert(a, b) {
 
   // calulation used to determine differnce in time inputs
   var timeDifference = Math.abs(startTime - endTime) + 1;
-  console.log("TOTAL after if statements = " + timeDifference);
+  //console.log("TOTAL after if statements = " + timeDifference);
 
   // *******************************
   //        TIME SECENARIOS
   // *******************************
 
   // Scenario 0 - START TIME = END TIME......24 HOURS - clockStrikes = 78
-  console.log("scenario 0");
+  
 
   if (startTime === endTime) {
+    console.log("scenario 0");
     $("#time").append("CLOCK STRIKES = 78");
     console.log("24 hours = 78");
     return;
@@ -88,6 +108,7 @@ function convert(a, b) {
       console.log("ClockStrikes = " + clockStrikes);
     }
     $("#time").append("CLOCK STRIKES = " + clockStrikes);
+    
     return;
   }
 
