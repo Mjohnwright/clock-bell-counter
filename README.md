@@ -1,9 +1,12 @@
 CLOCK TOWER BELL COUNTER
 
- *** There are some bugs in my code:
-    1. front end input time validation not activated - not working completely yet
-    2. time scenarios that do not end with :00 are not accounted for 
-    3. may be some other time scenarios I have not though of
+ *** There are some bugs in my code ***
+
+1. front end input time validation not activated - not working completely yet
+
+2. time scenarios that do not end with :00 are not accounted for 
+
+3. may be some other time scenarios I have not though of
 
 
 
