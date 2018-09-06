@@ -6,6 +6,7 @@
 
 // alert("connected");
 
+
 var clockStrikes = 0;
 
 /*****************************
@@ -14,6 +15,11 @@ var clockStrikes = 0;
 // // SUBMIT BUTTON TO CAPTURE TIME variables
 $("#button").on("click", function() {
   event.preventDefault();
+
+  // emties the "Number of Clockstrikes from DOM"
+  $("#time").empty()
+
+
   // Grabs user input
   startTimeInput = $("#startTime")
     .val()
@@ -47,18 +53,19 @@ function validate(time) {
 
 // Converts time to integers and processes clockStrike scenarios
 function convert(a, b) {
+
   // grabs the first part of the START time input
-  a = startTimeInput.split(":"); // 1
-  startTime = parseInt(a[0]);
+  var a = startTimeInput.split(":"); // 1
+  var startTime = parseInt(a[0]);
   //console.log("startTime = " + startTime);
 
   // grabs the second part of the START time input
-  exception = parseInt(a[1]);
+  var exception = parseInt(a[1]);
   //console.log("exception = " + exception);
 
   // grabs the first part of the END time input
-  b = endTimeInput.split(":"); // 23
-  endTime = parseInt(b[0]);
+  var b = endTimeInput.split(":"); // 23
+  var endTime = parseInt(b[0]);
   //console.log("endTime " + endTime);
 
   // calulation used to determine differnce in time inputs
@@ -76,6 +83,8 @@ function convert(a, b) {
     console.log("scenario 0");
     $("#time").append("CLOCK STRIKES = 78");
     console.log("24 hours = 78");
+    $("#startTime").empty();
+    $("#endTime").empty();
     return;
   }
 
