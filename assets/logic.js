@@ -21,7 +21,7 @@ $("#button").on("click", function() {
   // console.log(startTimeInput);
 
   // RUNS the validation function
-  //validate(startTimeInput);
+  validate(startTimeInput);
 
   endTimeInput = $("#endTime")
     .val()
@@ -29,23 +29,21 @@ $("#button").on("click", function() {
   //console.log(endTimeInput);
   
   // RUNS the validation function
-  //validate(startTimeInput, endTimeInput);
+  validate(endTimeInput);
 
   // RUNS the convert function
   convert(endTimeInput);
 });
 
-function validate(a) {
-  alert("fired");
-  alert(a);
-  var regex = /^\d{1,2}:\d{2}([ap]m)?$/;
-  if(a="") {
-    alert("Field cannot be blank")
-    if(!regex.test(a)) {
+// Validates input matches 00:00 time format
+function validate(time) {
+  var regex = /^(1[0-2])|0[1-9]:[0-5][0-9]$/;
+  console.log(time);
+   if (!regex.test(time)) {
       alert("Please use 24 hour format: ex. 03:00");
-    }
-  } return
-}
+    } else {
+  } return true
+};
 
 // Converts time to integers and processes clockStrike scenarios
 function convert(a, b) {
