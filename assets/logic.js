@@ -52,21 +52,22 @@ function validate(time) {
 
 // Converts time to integers and processes clockStrike scenarios
 function convert(a, b) {
-  // grabs the first part of the START time input
+  // grabs the FIRST part of the START time input
   var a = startTimeInput.split(":"); // 1
   var startTime = parseInt(a[0]);
   //console.log("startTime = " + startTime);
 
-  // grabs the second part of the START time input
+  // grabs the SECOND part of the START time input
   var exception = parseInt(a[1]);
   //console.log("exception = " + exception);
 
-  // grabs the first part of the END time input
+  // grabs the FIRST part of the END time input
   var b = endTimeInput.split(":"); // 23
   var endTime = parseInt(b[0]);
   //console.log("endTime " + endTime);
 
   // calulation used to determine differnce in time inputs
+  // Math.abs function takes a negative integer and makes it positive
   var timeDifference = Math.abs(startTime - endTime) + 1;
   //console.log("TOTAL after if statements = " + timeDifference);
 
@@ -75,9 +76,9 @@ function convert(a, b) {
   // *******************************
 
   // Scenario 0 - START TIME = END TIME......24 HOURS - clockStrikes = 78
-
   if (startTime === endTime) {
     console.log("scenario 0");
+    
     $("#time").append("CLOCK STRIKES = 78");
     console.log("24 hours = 78");
     $("#startTime").empty();
@@ -95,6 +96,7 @@ function convert(a, b) {
 
       console.log("SECONED EX = " + clockStrikes);
     }
+
     $("#startTime").empty();
     $("#endTime").empty();
     $("#time").append("CLOCK STRIKES = " + clockStrikes);
@@ -167,4 +169,5 @@ function convert(a, b) {
   
   $("#time").append("CLOCK STRIKES = " + clockStrikes);
   return;
-}
+
+};
