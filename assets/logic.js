@@ -6,7 +6,6 @@
 
 // alert("connected");
 
-
 var clockStrikes = 0;
 
 /*****************************
@@ -17,8 +16,7 @@ $("#button").on("click", function() {
   event.preventDefault();
 
   // emties the "Number of Clockstrikes from DOM"
-  $("#time").empty()
-
+  $("#time").empty();
 
   // Grabs user input
   startTimeInput = $("#startTime")
@@ -33,7 +31,7 @@ $("#button").on("click", function() {
     .val()
     .trim();
   //console.log(endTimeInput);
-  
+
   // RUNS the validation function
   validate(endTimeInput);
 
@@ -45,15 +43,15 @@ $("#button").on("click", function() {
 function validate(time) {
   var regex = /^(1[0-2])|0[1-9]:[0-5][0-9]$/;
   console.log(time);
-   if (!regex.test(time)) {
-      alert("Please use 24 hour format: ex. 03:00");
-    } else {
-  } return true
-};
+  if (!regex.test(time)) {
+    alert("Please use 24 hour format: ex. 03:00");
+  } else {
+  }
+  return true;
+}
 
 // Converts time to integers and processes clockStrike scenarios
 function convert(a, b) {
-
   // grabs the first part of the START time input
   var a = startTimeInput.split(":"); // 1
   var startTime = parseInt(a[0]);
@@ -77,7 +75,6 @@ function convert(a, b) {
   // *******************************
 
   // Scenario 0 - START TIME = END TIME......24 HOURS - clockStrikes = 78
-  
 
   if (startTime === endTime) {
     console.log("scenario 0");
@@ -98,10 +95,10 @@ function convert(a, b) {
 
       console.log("SECONED EX = " + clockStrikes);
     }
+    $("#startTime").empty();
+    $("#endTime").empty();
     $("#time").append("CLOCK STRIKES = " + clockStrikes);
-    //startTimeInput = 0;
-    //endTimeInput = 0;
-    return;
+    return
   }
 
   // Scenario 2 - startTime > 12 && startTime > 12 && startTime < endTime
@@ -114,8 +111,8 @@ function convert(a, b) {
       startTime++;
       console.log("ClockStrikes = " + clockStrikes);
     }
-    $("#time").append("CLOCK STRIKES = " + clockStrikes);
     
+    $("#time").append("CLOCK STRIKES = " + clockStrikes);
     return;
   }
 
@@ -133,6 +130,7 @@ function convert(a, b) {
         console.log("more than 13 = " + clockStrikes);
       }
     }
+    
     $("#time").append("CLOCK STRIKES = " + clockStrikes);
     return;
   }
@@ -153,6 +151,7 @@ function convert(a, b) {
         console.log(" less than 13 = " + clockStrikes);
       }
     }
+    
     $("#time").append("CLOCK STRIKES = " + clockStrikes);
     return;
   }
@@ -165,6 +164,7 @@ function convert(a, b) {
     for (var i = startTime; i <= endTime; i++) clockStrikes += endTime - 12;
     console.log("more than 12 = " + clockStrikes);
   }
+  
   $("#time").append("CLOCK STRIKES = " + clockStrikes);
   return;
 }
